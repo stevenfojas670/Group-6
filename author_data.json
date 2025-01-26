@@ -1,0 +1,294 @@
+{
+    "Niall Scott": {
+        "date": "2024-10-04T07:42:57Z",
+        "files": [
+            "app/build.gradle.kts",
+            "app/proguard-rules.pro",
+            "build.gradle.kts",
+            "gradle.properties",
+            "gradle/libs.versions.toml",
+            "gradle/wrapper/gradle-wrapper.properties",
+            "rootbeerlib/build.gradle.kts",
+            "rootbeerlib/proguard-rules.pro",
+            "settings.gradle.kts"
+        ]
+    },
+    "Scott Alexander-Bown": {
+        "date": "2015-06-19T17:20:07Z",
+        "files": [
+            "app/build.gradle.kts",
+            "gradle.properties",
+            "rootbeerlib/build.gradle.kts",
+            "rootbeerlib/gradle.properties",
+            "settings.gradle.kts",
+            ".circleci/config.yml",
+            "app/src/main/java/com/scottyab/rootbeer/sample/CheckForRootWorker.kt",
+            "build.gradle",
+            "app/build.gradle",
+            "app/src/main/AndroidManifest.xml",
+            "app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/RootItemResult.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/RootSampleApp.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/extensions/ViewExtensions.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/ui/ResultIconView.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/ui/RootItemAdapter.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/ui/RootedResultTextView.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/ui/ScopedActivity.kt",
+            "gradle-mvn-push.gradle",
+            "rootbeerlib/build.gradle",
+            "app/src/main/res/layout/content_main.xml",
+            "app/src/main/res/values/colors.xml",
+            "gradle/wrapper/gradle-wrapper.properties",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/Utils.java",
+            ".idea/gradle.xml",
+            ".idea/misc.xml",
+            "rootbeerlib/src/main/AndroidManifest.xml",
+            "app/src/main/res/layout/activity_main.xml",
+            "rootbeerlib/jni/toolChecker.cpp",
+            "rootbeerlib/jni/toolChecker.h",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeerNative.java",
+            "rootbeerlib/jni/Application.mk",
+            "rootbeerlib/jni/build.sh",
+            ".idea/modules.xml",
+            "app/jni/Android.mk",
+            "app/jni/build.sh",
+            "app/jni/toolChecker.cpp",
+            "app/jni/toolChecker.h",
+            "app/src/main/java/com/scottyab/rootchecker/MainActivity.java",
+            "app/src/main/java/com/scottyab/rootchecker/RootCheck.java",
+            "app/src/main/java/com/scottyab/rootchecker/RootCheckNative.java",
+            ".idea/runConfigurations.xml"
+        ]
+    },
+    "Artsem Kurantsou": {
+        "date": "2024-08-04T19:40:34Z",
+        "files": [
+            "app/build.gradle.kts",
+            "build.gradle.kts",
+            "rootbeerlib/build.gradle.kts",
+            "gradle-mvn-push.gradle",
+            "app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.kt",
+            "settings.gradle.kts",
+            "gradle/libs.versions.toml",
+            "app/build.gradle",
+            "build.gradle",
+            "dependencies.gradle",
+            "rootbeerlib/build.gradle",
+            "settings.gradle",
+            "app/src/main/AndroidManifest.xml",
+            "app/src/main/java/com/scottyab/rootbeer/sample/RootSampleApp.kt",
+            "app/src/main/java/com/scottyab/rootbeer/sample/ui/RootItemAdapter.kt",
+            "gradle/wrapper/gradle-wrapper.properties",
+            "gradlew.bat",
+            "rootbeerlib/src/main/AndroidManifest.xml"
+        ]
+    },
+    "grubeli": {
+        "date": "2021-11-16T14:04:57Z",
+        "files": [
+            "app/src/main/java/com/scottyab/rootbeer/sample/CheckForRootWorker.kt"
+        ]
+    },
+    "Matthew Rollings": {
+        "date": "2015-06-19T10:09:22Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeerNative.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "build.gradle",
+            "rootbeerlib/build.gradle",
+            "gradle.properties",
+            ".circleci/config.yml",
+            "rootbeerlib/src/test/java/com/scottyab/rootbeer/RootBeerTest.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/Utils.java",
+            "app/build.gradle",
+            "gradle/wrapper/gradle-wrapper.properties",
+            "rootbeerlib/src/main/jni/Application.mk",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java",
+            "app/src/main/res/layout/activity_main.xml",
+            "rootbeerlib/jni/build.sh",
+            "rootbeerlib/jni/toolChecker.cpp",
+            "rootbeerlib/jni/toolChecker.h",
+            "rootbeerlib/jni/Application.mk",
+            ".idea/misc.xml",
+            ".idea/runConfigurations.xml",
+            "app/jni/Android.mk",
+            "app/jni/build.sh",
+            "app/jni/toolChecker.cpp",
+            "app/jni/toolChecker.h",
+            "app/src/main/java/com/scottyab/rootchecker/RootCheckNative.java",
+            "app/jni/rootChecker.cpp",
+            "app/jni/rootChecker.h",
+            "app/src/main/java/com/scottyab/rootchecker/MainActivity.java",
+            "app/src/main/java/com/scottyab/rootchecker/RootCheck.java"
+        ]
+    },
+    "Stefan M": {
+        "date": "2020-07-22T11:25:49Z",
+        "files": [
+            "rootbeerlib/src/main/res/values/strings.xml"
+        ]
+    },
+    "Slim Namouchi": {
+        "date": "2020-07-21T13:19:44Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "Roberto Gonzalez": {
+        "date": "2020-07-17T08:05:44Z",
+        "files": [
+            "rootbeerlib/src/main/jni/Android.mk"
+        ]
+    },
+    "Fi5t": {
+        "date": "2020-07-15T20:47:49Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java"
+        ]
+    },
+    "mat": {
+        "date": "2020-01-28T12:31:03Z",
+        "files": [
+            "app/build.gradle",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            ".circleci/config.yml",
+            "rootbeerlib/src/test/java/com/scottyab/rootbeer/RootBeerTest.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java",
+            "build.gradle",
+            "gradle/wrapper/gradle-wrapper.properties",
+            "rootbeerlib/build.gradle"
+        ]
+    },
+    "Deepak PK": {
+        "date": "2020-03-11T09:28:40Z",
+        "files": [
+            "app/src/main/AndroidManifest.xml",
+            "app/src/main/res/layout/activity_main.xml"
+        ]
+    },
+    "Ivan Vlasov": {
+        "date": "2019-12-09T10:32:18Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "Daniel Kutik": {
+        "date": "2019-11-16T02:45:47Z",
+        "files": [
+            "app/build.gradle",
+            "app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java",
+            "rootbeerlib/build.gradle",
+            "rootbeerlib/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java"
+        ]
+    },
+    "altvnv": {
+        "date": "2018-03-16T16:42:19Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java"
+        ]
+    },
+    "matthew": {
+        "date": "2017-10-31T18:57:32Z",
+        "files": [
+            "rootbeerlib/build.gradle",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            "rootbeerlib/src/test/java/com/scottyab/rootbeer/RootBeerTest.java"
+        ]
+    },
+    "Frieder Bluemle": {
+        "date": "2017-05-11T16:55:33Z",
+        "files": [
+            "build.gradle",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            "gradle.properties",
+            "app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java"
+        ]
+    },
+    "Ali Waseem": {
+        "date": "2017-08-11T15:34:54Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "LeonKarabchevsky": {
+        "date": "2017-06-11T14:34:20Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "BIOCATCH\\Leon.Karabchevsky": {
+        "date": "2017-06-07T07:53:52Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "Antonio": {
+        "date": "2017-05-02T11:42:25Z",
+        "files": [
+            "rootbeerlib/build.gradle"
+        ]
+    },
+    "vyas": {
+        "date": "2017-05-10T19:44:29Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "aippisch": {
+        "date": "2016-09-16T14:04:45Z",
+        "files": [
+            "rootbeerlib/jni/toolChecker.cpp"
+        ]
+    },
+    "leocadiotine": {
+        "date": "2016-09-14T21:25:21Z",
+        "files": [
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java"
+        ]
+    },
+    "Sergey Valiulik": {
+        "date": "2016-07-07T08:48:51Z",
+        "files": [
+            "app/build.gradle",
+            "build.gradle",
+            "rootbeerlib/build.gradle"
+        ]
+    },
+    "Mohammed Ezzat": {
+        "date": "2016-03-15T13:13:43Z",
+        "files": [
+            "app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/Const.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/QLog.java",
+            "rootbeerlib/src/main/java/com/scottyab/rootbeer/util/Utils.java"
+        ]
+    },
+    "biddster": {
+        "date": "2016-03-07T14:21:36Z",
+        "files": [
+            "rootbeerlib/jni/build.sh"
+        ]
+    },
+    "Alessandro Yuichi Okimoto": {
+        "date": "2015-10-01T12:26:13Z",
+        "files": [
+            "rootbeerlib/src/main/AndroidManifest.xml",
+            "app/src/main/AndroidManifest.xml"
+        ]
+    }
+}

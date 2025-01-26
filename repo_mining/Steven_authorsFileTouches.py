@@ -4,6 +4,8 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from datetime import datetime
+import matplotlib.patches as mpatches
 
 if not os.path.exists("data"):
  os.makedirs("data")
@@ -11,7 +13,7 @@ if not os.path.exists("data"):
 # parsing filenames for src extensions
 # If file extension is not a src extension, then the function will return false
 def parse_filenames(filename):
-    src_extensiosn = ['.java', '.cpp', '.h', '.kt', '.kts', '.gradle', '.properties', '.mk', '.pro', '.xml', '.toml', '.yml', '.bat']
+    src_extensiosn = ['.java', '.cpp', '.h', '.kt', '.kts', '.gradle', '.properties', '.mk', '.pro', '.xml', '.toml', '.yml', '.bat', '.sh']
 
     if filename.startswith('.'):
         extension = '.' + filename.split('.')[-1]
@@ -37,6 +39,63 @@ def github_auth(url, lsttoken, ct):
         pass
         print(e)
     return jsonData, ct
+
+def plot_files(author_map):
+
+    # Map unique files to integers
+    unique_files = set()
+
+    for contributor in author_map.values():
+        unique_files.update(contributor['files'])
+    
+    unique_files_list = sorted(unique_files)
+
+    file_to_id_map = {file: idx for idx, file in enumerate(unique_files_list, start=0)}
+
+    # Gathering dates from author dictionary
+    date_strings = [entry['date'] for entry in author_map.values()]
+
+    date_objects = sorted(set(datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ") for date in date_strings))
+
+    earliest_date = min(date_objects)
+
+    week_numbers = [(date - earliest_date).days // 7 for date in date_objects]
+
+    date_to_week = {date.strftime("%Y-%m-%dT%H:%M:%SZ"): week for date, week in zip(date_objects, week_numbers)}
+
+    for author, details in author_map.items():
+        details['week_number'] = date_to_week[details['date']]
+
+    authors = list(author_map.keys())
+    author_to_color = {author: idx for idx, author in enumerate(authors)}
+
+    x = []
+    y = []
+    colors = []
+
+    for author, contributor in author_map.items():
+        week_number = contributor['week_number']
+        color=author_to_color[author]
+        for file in contributor['files']:
+            x.append(file_to_id_map[file])
+            y.append(week_number)
+            colors.append(color)
+
+    y_min, y_max = min(y), max(y)
+    yticks = np.arange(y_min, y_max + 1, step=25)
+
+    plt.figure(figsize=(12,12))
+    plt.scatter(x, y, c=colors, cmap='tab10', s=40)
+    plt.xlabel('Files')
+    plt.ylabel('Weeks')
+    plt.title('File commit history by weeks')
+    plt.yticks(yticks)
+    # Create legend mapping colors to authors
+    legend_patches = [mpatches.Patch(color=plt.cm.tab10(author_to_color[author]/len(authors)), label=author) 
+                    for author in authors]
+
+    plt.legend(handles=legend_patches, title="Authors", bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.show()
 
 # @dictFiles, empty dictionary of files
 # @lstTokens, GitHub authentication tokens
@@ -84,8 +143,11 @@ def countfiles(dictfiles, lsttokens, repo):
                                 "files": [filename]
                             }
                         else:
-                            author_map[author['name']]['date'] = author['date']
-                            author_map[author['name']]['files'].append(filename)
+                            files_list = author_map[author['name']]['files']
+
+                            if filename not in files_list:
+                                author_map[author['name']]['date'] = author['date']
+                                author_map[author['name']]['files'].append(filename)
 
                         dictfiles[filename] = dictfiles.get(filename, 0) + 1
                         print(filename)
@@ -98,7 +160,9 @@ def countfiles(dictfiles, lsttokens, repo):
         print("Error receiving data")
         exit(0)
 
-    # plot_files(dictfiles=dictfiles, author_map=author_map)
+    with open("author_data.json", "w") as outfile:
+        json.dump(author_map, outfile, indent=4)
+    plot_files(author_map=author_map)
 
 # GitHub repo
 repo = 'scottyab/rootbeer'
