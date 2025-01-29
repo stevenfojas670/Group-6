@@ -1,5 +1,5 @@
-
-Jacob Kasbohm - kasbohm@unlv.nevada.edu
+Name: Jacob Kasbohm
+Email: kasbohm@unlv.nevada.edu
 
 Name: Sarel Erasmus 
 Email: erasms1@unlv.nevada.edu
@@ -13,3 +13,5 @@ Email: levyd1@unlv.nevada.edu
 Name: Eli Rosales
 Email: rosale5@unlv.nevada.edu
 
+Name: Alexander Baker
+Email: Bakera21@unlv.nevada.edu
