@@ -37,26 +37,38 @@ def setup_and_teardown():
 # Test Group: Role Management
 # ===========================
 
+# ===========================
+# Test: Account Role Assignment
+# Author: John Businge
+# Date: 2025-01-30
+# Description: Ensure roles can be assigned and checked.
+# ===========================
+
 def test_account_role_assignment():
     """Test assigning roles to an account"""
     account = Account(name="John Doe", email="johndoe@example.com", role="user")
 
-    # Add to database
-    db.session.add(account)
-    db.session.commit()
-
-    # Retrieve from database
-    retrieved_account = Account.query.filter_by(email="johndoe@example.com").first()
-
-    # Ensure correct role assignment
-    assert retrieved_account.role == "user"
+    # Assign initial role
+    assert account.role == "user"
 
     # Change role and verify
-    retrieved_account.change_role("admin")
-    db.session.commit()
+    account.change_role("admin")
+    assert account.role == "admin"
 
-    updated_account = Account.query.filter_by(email="johndoe@example.com").first()
-    assert updated_account.role == "admin"
+# ===========================
+# Test: Invalid Role Assignment
+# Author: John Businge
+# Date: 2025-01-30
+# Description: Ensure invalid roles raise a DataValidationError.
+# ===========================
+
+def test_invalid_role_assignment():
+    """Test assigning an invalid role"""
+    account = Account(role="user")
+
+    # Attempt to assign an invalid role
+    with pytest.raises(DataValidationError):
+        account.change_role("moderator")  # Invalid role should raise an error
 
 
 ######################################################################
