@@ -1,75 +1,83 @@
 """
-Account class
+models/account.py
+
+Defines the Account model.
 """
-import logging
-from sqlalchemy.sql import func
+
+from datetime import datetime
+import re
+from werkzeug.security import generate_password_hash, check_password_hash
 from models import db
 
-logger = logging.getLogger()
-
-
 class DataValidationError(Exception):
-    """Used for an data validation errors when deserializing"""
-
+    """Used for data validation errors"""
+    pass
 
 class Account(db.Model):
-    """ Class that represents an Account """
-    
+    """ Represents an Account in the system """
+
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    email = db.Column(db.String(64))
-    phone_number = db.Column(db.String(32), nullable=True)
-    disabled = db.Column(db.Boolean(), nullable=False, default=False)
-    date_joined = db.Column(db.DateTime, nullable=False, server_default=func.now())
+    name = db.Column(db.String(64), nullable=False)
+    email = db.Column(db.String(120), nullable=False, unique=True)
+    phone_number = db.Column(db.String(20))
+    disabled = db.Column(db.Boolean, default=False)
+    date_joined = db.Column(db.DateTime, default=datetime.utcnow)
+    balance = db.Column(db.Float, default=0.0)
+    role = db.Column(db.String(20), default="user")  # Possible roles: user, admin
+    password_hash = db.Column(db.String(128))
 
     def __repr__(self):
-        return '<Account %r>' % self.name
+        return f"<Account '{self.name}'>"
 
     def to_dict(self) -> dict:
-        """Serializes the class as a dictionary"""
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        """Serializes the account object to a dictionary"""
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "phone_number": self.phone_number,
+            "disabled": self.disabled,
+            "date_joined": self.date_joined,
+            "balance": self.balance,
+            "role": self.role
+        }
 
-    def from_dict(self, data: dict) -> None:
-        """Sets attributes from a dictionary"""
-        for key, value in data.items():
-            setattr(self, key, value)
+    def validate_email(self):
+        """Validates email format"""
+        email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+        if not re.match(email_regex, self.email):
+            raise DataValidationError("Invalid email format")
 
-    def create(self):
-        """Creates an Account in the database"""
-        logger.info("Creating %s", self.name)
-        db.session.add(self)
-        db.session.commit()
+    def deposit(self, amount):
+        """Deposits an amount into the account balance"""
+        if amount <= 0:
+            raise DataValidationError("Deposit amount must be positive")
+        self.balance += amount
 
-    def update(self):
-        """Updates an Account in the database"""
-        logger.info("Saving %s", self.name)
-        if not self.id:
-            raise DataValidationError("Update called with empty ID field")
-        db.session.commit()
+    def withdraw(self, amount):
+        """Withdraws an amount from the account balance"""
+        if amount <= 0:
+            raise DataValidationError("Withdrawal amount must be positive")
+        if amount > self.balance:
+            raise DataValidationError("Insufficient balance")
+        self.balance -= amount
+
+    def set_password(self, password):
+        """Hashes and stores the password"""
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        """Checks if the given password matches the stored password"""
+        return check_password_hash(self.password_hash, password)
+
+    def change_role(self, new_role):
+        """Changes the user role"""
+        if new_role not in ["user", "admin"]:
+            raise DataValidationError("Invalid role")
+        self.role = new_role
 
     def delete(self):
-        """Removes an Account from the database"""
-        logger.info("Deleting %s", self.name)
+        """Deletes the account from the database"""
         db.session.delete(self)
         db.session.commit()
 
-    ##################################################
-    # CLASS METHODS
-    ##################################################
-
-    @classmethod
-    def all(cls) -> list:
-        """Returns all of the Accounts in the database"""
-        logger.info("Processing all Accounts")
-        return cls.query.all()
-
-    @classmethod
-    def find(cls, account_id: int):
-        """Finds an Account by it's ID
-        :param account_id: the id of the Account to find
-        :type account_id: int
-        :return: an instance with the account_id, or None if not found
-        :rtype: Account
-        """
-        logger.info("Processing lookup for id %s ...", account_id)
-        return cls.query.get(account_id)

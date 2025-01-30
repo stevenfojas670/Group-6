@@ -1,5 +1,7 @@
 # Dependencies for this lab
-Flask
-Flask-SQLAlchemy
-pytest
-pytest-cov
+Flask>=2.2,<2.3
+Flask-SQLAlchemy>=3.0,<3.1
+pytest>=7.4,<8.0
+pytest-cov>=4.1,<5.0
+werkzeug>=2.2,<2.3
+
