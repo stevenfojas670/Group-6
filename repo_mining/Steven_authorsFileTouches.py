@@ -2,11 +2,9 @@ import json
 import requests
 import csv
 import os
+from Steven_scatterplot import scatterplot
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from datetime import datetime
-import matplotlib.patches as mpatches
+
 
 if not os.path.exists("data"):
  os.makedirs("data")
@@ -41,89 +39,6 @@ def github_auth(url, lsttoken, ct):
         print(e)
     return jsonData, ct
 
-def clean_files(author_map):
-
-    # Map unique files to integers
-    unique_files = set()
-
-    for author in author_map.values():
-        for date_entry in author.values():
-            unique_files.update(date_entry['files'])
-    
-    unique_files_list = sorted(unique_files)
-
-    file_to_id_map = {file: idx for idx, file in enumerate(unique_files_list, start=0)}
-
-    all_dates = set()
-    for author in author_map.values():
-        all_dates.update(author.keys())
-
-    date_objects = sorted(set(datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ") for date in all_dates))
-
-    earliest_date = min(date_objects)
-
-    # Create mapping of dates to week numbers starting from "Week 0"
-    date_to_week_map = {
-        date.strftime("%Y-%m-%dT%H:%M:%SZ"): f"Week {(date - earliest_date).days // 7}"
-        for date in date_objects
-    }
-
-    # Placing the mapped week numbers into the author_maps at the corresponding dates
-    for author in author_map.keys():
-        for date in author_map[author].keys():
-            if date in date_to_week_map:
-                author_map[author][date]['week'] = date_to_week_map[date]
-
-    # print(author_map)
-
-    to_json("author_data.json", author_map) # Creating json file so I can mess with it in jupyter notebook
-
-    authors = list(author_map.keys())
-
-    cmap = plt.colormaps.get_cmap('hsv')
-    author_to_color = {author: idx for idx, author in enumerate(authors)}
-
-    x = []
-    y = []
-    colors = []
-
-    for author, contributions in author_map.items():
-        color_idx = author_to_color[author]
-        for date, details in contributions.items():
-            week_number = details['week']
-            for file in details['files']:
-                x.append(file_to_id_map[file])
-                y.append(int(week_number.split()[1]))  # Convert 'Week N' to integer N
-                colors.append(color_idx)
-
-    # Define tick marks on y-axis
-    y_min, y_max = min(y), max(y)
-    yticks = np.arange(y_min, y_max + 1, step=25)
-
-    # Plot scatter plot with colormap
-    plt.figure(figsize=(12, 12))
-    plt.scatter(x, y, c=colors, cmap=cmap, s=40)
-    plt.xlabel('Files')
-    plt.ylabel('Weeks')
-    plt.title('File commit history by weeks')
-    plt.yticks(yticks)
-
-    # Create legend with unique colors for authors
-    legend_patches = [mpatches.Patch(color=cmap(author_to_color[author] / len(authors)), label=author) 
-                    for author in authors]
-
-    plt.legend(handles=legend_patches, title="Authors", bbox_to_anchor=(1.05, 1), loc='upper left')
-
-    plt.savefig('plotted_commit_history.png', dpi=300, bbox_inches='tight', pad_inches=0.2)
-
-    plt.show()
-
-    # Count contributions per author
-    author_contributions = {author: len(contributions) for author, contributions in author_map.items()}
-
-    contributions = pd.DataFrame(author_contributions.items(), columns=['Author', 'Contributions'])
-    contributions.to_csv('author_contributions.csv', index=False)
-
 
 def to_json(filename, jsonObj):
     with open(filename, "w") as outfile:
@@ -156,9 +71,6 @@ def countfiles(dictfiles, lsttokens, repo):
             for commit_obj in jsonCommits:
                 commit = commit_obj['commit']
                 all_authors.add(commit['author']['name'])
-
-            all_authors_df = pd.DataFrame(all_authors, columns=['Authors'])
-            all_authors_df.to_csv('authors.csv', index=False)
 
             # break out of the while loop if there are no more commits in the pages
             if len(jsonCommits) == 0:
@@ -207,7 +119,7 @@ def countfiles(dictfiles, lsttokens, repo):
         print("Error receiving data")
         exit(0)
     
-    clean_files(author_map=author_map)
+    scatterplot(author_map=author_map)
 
 # GitHub repo
 repo = 'scottyab/rootbeer'
