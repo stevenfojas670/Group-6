@@ -42,29 +42,13 @@ def countfiles(dictfiles, lsttokens, repo):
             for shaObject in jsonCommits:
                 sha = shaObject['sha']
                 # For each commit, use the GitHub commit API to extract the files touched by the commit
-                #print(shaObject['author']['login'])
                 shaUrl = 'https://api.github.com/repos/' + repo + '/commits/' + sha
                 shaDetails, ct = github_auth(shaUrl, lsttokens, ct)
                 filesjson = shaDetails['files']
                 for filenameObj in filesjson:
                     filename = filenameObj['filename']
-                    if not ('test' in filename):
-                        if 'src' in filename:
-                            if filename.endswith('.java'):
-                                dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                                print(filename)
-                            if filename.endswith('.kt'):
-                                dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                                print(filename)
-                            if filename.endswith('.c'):
-                                dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                                print(filename)
-                            if filename.endswith('.cpp'):
-                                dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                                print(filename)
-                            if filename.endswith('.txt') or filename.endswith('.cmake'):
-                                dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                                print(filename)
+                    dictfiles[filename] = dictfiles.get(filename, 0) + 1
+                    print(filename)
             ipage += 1
     except:
         print("Error receiving data")
@@ -80,7 +64,7 @@ repo = 'scottyab/rootbeer'
 # Remember to empty the list when going to commit to GitHub.
 # Otherwise they will all be reverted and you will have to re-create them
 # I would advise to create more than one token for repos with heavy commits
-lstTokens = [""]
+lstTokens = ['']
 
 dictfiles = dict()
 countfiles(dictfiles, lstTokens, repo)
