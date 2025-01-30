@@ -1,30 +1,29 @@
-'''
-Name: Daniel Levy, #8001542698, CS472, Lab #1
-Description: This script will retrieve the source files that needs 
-to be checked for commit history from a GitHub repo. This was provided
-by Dr. Businge, so it has been modified to check for programming 
-languages to determine if a file needs to be checked.
-Input: repo name we want to examine 
-Output: .csv file containing how many source files are in a repo
-with the number of times they were committed
-'''
 import json
 import requests
 import csv
-
 import os
+from Steven_scatterplot import scatterplot
+import pandas as pd
+
 
 if not os.path.exists("data"):
  os.makedirs("data")
 
-# Languages that we will be checking for
-languages = [
-    "java",
-    "kts",
-    "py",
-    "cpp",
-    "c"
-]
+# parsing filenames for src extensions
+# If file extension is not a src extension, then the function will return false
+def parse_filenames(filename):
+    src_extensiosn = ['.java', '.cpp', '.h', '.kt', '.kts', '.gradle', '.properties', '.mk', '.pro', '.xml', '.toml', '.yml', '.bat', '.sh']
+
+    if filename.startswith('.'):
+        extension = '.' + filename.split('.')[-1]
+    else:
+        extension = '.' + filename.rsplit('.', 1)[-1]
+
+    if extension in src_extensiosn:
+        return True
+    
+    print('Not source file: ', extension)
+    return False
 
 # GitHub Authentication function
 def github_auth(url, lsttoken, ct):
@@ -40,12 +39,25 @@ def github_auth(url, lsttoken, ct):
         print(e)
     return jsonData, ct
 
+
+def to_json(filename, jsonObj):
+    with open(filename, "w") as outfile:
+        json.dump(jsonObj, outfile, indent=4)
+
 # @dictFiles, empty dictionary of files
 # @lstTokens, GitHub authentication tokens
 # @repo, GitHub repo
 def countfiles(dictfiles, lsttokens, repo):
     ipage = 1  # url page counter
     ct = 0  # token counter
+    author_map = {} # Dict to store the author, commits and dates
+
+    '''
+        jsonCommits - List of all commits in the repo
+        shaObject - Single commit within jsonCommits
+        shaDetails - List of all files within a single commit
+        filenameObj - Single file metadata from the shaDetails file object
+    '''
 
     try:
         # loop though all the commit pages until the last returned empty page
@@ -54,31 +66,61 @@ def countfiles(dictfiles, lsttokens, repo):
             commitsUrl = 'https://api.github.com/repos/' + repo + '/commits?page=' + spage + '&per_page=100'
             jsonCommits, ct = github_auth(commitsUrl, lsttokens, ct)
 
+            all_authors = set()
+
+            for commit_obj in jsonCommits:
+                commit = commit_obj['commit']
+                all_authors.add(commit['author']['name'])
+
             # break out of the while loop if there are no more commits in the pages
             if len(jsonCommits) == 0:
                 break
-            
-            # iterate through the list of commits in  spage
+            # iterate through the list of commits in spage
             for shaObject in jsonCommits:
                 sha = shaObject['sha']
+
                 # For each commit, use the GitHub commit API to extract the files touched by the commit
                 shaUrl = 'https://api.github.com/repos/' + repo + '/commits/' + sha
                 shaDetails, ct = github_auth(shaUrl, lsttokens, ct)
+                commit = shaDetails['commit'] # Gathering commit data
+                author_obj = commit['author'] # Gather author data
                 filesjson = shaDetails['files']
                 for filenameObj in filesjson:
                     filename = filenameObj['filename']
-                    # For every file, we will check if it ends with one of the language file extensions
-                    # listed above. If the file is a program in one of these languages, that means it's a
-                    # source file, and it needs to be added to our output file
-                    for l in languages:
-                        if filename.endswith(l):
-                            dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                            print(filename)
-                            break 
+                    
+
+                    if parse_filenames(filename=filename):
+
+                        author_name = author_obj['name']
+                        date = str(author_obj['date'])
+
+                        if author_name not in author_map:
+                            author_map[author_name] = { date: {
+                                "files": [filename],
+                                "week": None
+                            }}
+                        else:
+                            if date not in author_map[author_name]:
+                                author_map[author_name][date] = { 
+                                    "files": [filename],
+                                    "week": None
+                                }
+                            else:
+                                author_map[author_name][date]['files'].append(filename)
+
+                        dictfiles[filename] = dictfiles.get(filename, 0) + 1
+                        print(filename)
+                    else:
+                        break
+
+                    
             ipage += 1
     except:
         print("Error receiving data")
         exit(0)
+    
+    scatterplot(author_map=author_map)
+
 # GitHub repo
 repo = 'scottyab/rootbeer'
 # repo = 'Skyscanner/backpack' # This repo is commit heavy. It takes long to finish executing
@@ -90,7 +132,7 @@ repo = 'scottyab/rootbeer'
 # Remember to empty the list when going to commit to GitHub.
 # Otherwise they will all be reverted and you will have to re-create them
 # I would advise to create more than one token for repos with heavy commits
-lstTokens = []
+lstTokens = ['']
 
 dictfiles = dict()
 countfiles(dictfiles, lstTokens, repo)
