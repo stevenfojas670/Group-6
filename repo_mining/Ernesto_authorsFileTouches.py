@@ -53,7 +53,7 @@ def countfiles(dictfiles, lsttokens, repo):
                 for filenameObj in filesjson:
                     filename = filenameObj['filename']
                     #check if fileName is source file (.cpp or .java or .ks or .kst)
-                    if (filename.find(".cpp")>0 or filename.find(".java")>0 or filename.find(".h")>0 or filename.find(".kt")>0):
+                    if (filename.find(".cpp")>0 or filename.find(".java")>0 or filename.find(".h")>0 or filename.find(".kt")>0 or filename.find(".c")>0 or filename.find(".xml")>0):
                         dictfiles[filename] = dictfiles.get(filename, 0) + 1
 
                         #retrieve name of author and date information from source files
@@ -79,7 +79,7 @@ def countfiles(dictfiles, lsttokens, repo):
 
                         #lineString.append(name +" "+ filename +" "+ date)
 
-                ipage += 1 #duda
+            ipage += 1 #duda
                 
     except:
         print("Error receiving data")
