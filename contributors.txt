@@ -24,3 +24,6 @@ Email: Bakera21@unlv.nevada.edu
 
 Name: Jesse Ortega
 Email: ortegj8@unlv.nevada.edu
+
+Name: Cassandra Tolton
+Email: Tolton@unlv.nevada.edu
