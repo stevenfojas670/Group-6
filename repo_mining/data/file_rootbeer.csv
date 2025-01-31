@@ -1,3 +1,4 @@
+
 Filename,Touches
 app/build.gradle.kts,6
 app/proguard-rules.pro,4
@@ -184,3 +185,5 @@ app/jni/rootChecker.cpp,1
 app/jni/rootChecker.h,1
 app/src/androidTest/java/com/scottyab/rootchecker/ApplicationTest.java,1
 app/src/main/java/com/scottyab/rootchecker/util/QLog.java,1
+
+
