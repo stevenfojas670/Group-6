@@ -97,9 +97,21 @@ Each test should include:
 # - Create an account and retrieve it using its ID.
 # - Ensure the retrieved account matches the created one.
 
-# TODO 4: Test Invalid Email Handling
-# - Check that invalid emails (e.g., "not-an-email") raise a validation error.
-# - Ensure accounts without an email cannot be created.
+# TODO 4: Test Positive Deposit
+# ===========================
+# Test: Test Positive Deposit
+# Author: Alexander Baker
+# Date: 2025-02-01
+# Description: Ensure a positive deposit increases balance
+# ===========================
+
+def test_positive_deposit():
+    """Test depositing a positive number"""
+    account = Account(balance=0.0)
+
+    # Attempt to deposit a positive number
+    account.deposit(100.0)
+    assert account.balance == 100.0
 
 # TODO 5: Test Password Hashing
 # - Ensure that passwords are stored as **hashed values**.
