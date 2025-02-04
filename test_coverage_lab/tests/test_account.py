@@ -118,31 +118,9 @@ Each test should include:
 # - Verify that plaintext passwords are never stored in the database.
 # - Test password verification with `set_password()` and `check_password()`.
 
-# 9: Test Role Assignment
+# TODO 9: Test Role Assignment
 # - Ensure that `change_role()` correctly updates an account’s role.
 # - Verify that the updated role is stored in the database.
-def test_change_role_persists():
-    """Test that change_role() updates the role and persists in the database"""
-    # Create a new account with an initial role
-    account = Account(name="Evan", email="evan@gmail.com", role="user")
-    # db.session is a sign of SQLAlchemy, so we can assume its being used bc we see it in example code
-    db.session.add(account) # .add can be used to add any object
-    db.session.commit()  # Saves to database
-
-    # Ensure initial role is set correctly
-    # The id is set as the primary key when account is added to the db earlier
-    retrieved_account = Account.query.get(account.id)
-    # Make sure its stored in the db correctly
-    assert retrieved_account.role == "user"
-
-    # Change role
-    retrieved_account.change_role("admin")
-    assert retrieved_account.role == "admin" # Immediately check that change_role() works
-    db.session.commit()  # Save the change
-
-    # Retrieve again to verify its stored in db the second time
-    updated_account = Account.query.get(account.id)
-    assert updated_account.role == "admin"
 
 # TODO 10: Test Invalid Role Assignment
 # - Ensure that assigning an invalid role raises an appropriate error.
@@ -151,3 +129,4 @@ def test_change_role_persists():
 # TODO 11: Test Deleting an Account
 # - Ensure that `delete()` removes an account from the database.
 # - Verify that attempting to retrieve a deleted account returns `None` or raises an error.
+
