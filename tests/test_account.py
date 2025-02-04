@@ -105,10 +105,29 @@ Each test should include:
 # - Ensure `deposit()` raises an error for zero or negative amounts.
 # - Verify that balance remains unchanged after an invalid deposit attempt.
 
-# TODO 6: Test Valid Withdrawal
-# - Ensure `withdraw()` correctly decreases the account balance.
-# - Verify that withdrawals within available balance succeed.
+# ===========================
+# Test: Valid Withdrawal
+# Author: Daniel Levy
+# Date: 2025-02-04
+# Description: Ensure `withdraw()` correctly decreases the account balance.
+#              Verify that withdrawals within available balance succeed.
+# ===========================
+def test_valid_withdrawal():
+    # Create new account for unit test
+    account = Account(name="Daniel Levy", email="levyd1@unlv.nevada.edu", balance=100.00)
 
+    # First Test: Withdraw decreases balance by the correct amount
+    original_balance = account.balance
+    account.withdraw(20)
+    assert account.balance == (original_balance-20)
+    
+    # Second Test: Withdraw is able to succeed with current available balance
+    original_balance = account.balance 
+    amount_to_decrease_balance = 30
+    account.withdraw(amount_to_decrease_balance)
+    assert account.balance > amount_to_decrease_balance
+    
+       
 # TODO 7: Test Withdrawal with Insufficient Funds
 # - Ensure `withdraw()` raises an error when attempting to withdraw more than available balance.
 # - Verify that the balance remains unchanged after a failed withdrawal.
