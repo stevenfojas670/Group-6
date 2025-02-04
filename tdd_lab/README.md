@@ -58,8 +58,11 @@ flask run
 
 ✅ Visit http://127.0.0.1:5000/counters/foo in the browser. If it returns {"error": "Counter not found"}, your API is working!
 
+### 6. Merge Conflicts
+If you are having trouble merging changes to the main branch of the team's repo, you can take a look at this doc: [How to Handle Merge Conflicts in the Testing Lab](doc/mergeconflicts.md).
 
-### 6. 🛠️ Troubleshooting Guide
+
+### 7. 🛠️ Troubleshooting Guide
 
 Below are common errors students may encounter and their solutions:
 
