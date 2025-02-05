@@ -89,6 +89,16 @@ Each test should include:
 # - Ensure `to_dict()` correctly converts an account to a dictionary format.
 # - Verify that all expected fields are included in the dictionary.
 
+# TODO 2: Test Updating Account Email
+# - Ensure an account’s email can be successfully updated.
+# - Verify that the updated email is stored in the database.
+
+# TODO 3: Test Finding an Account by ID
+# - Create an account and retrieve it using its ID.
+# - Ensure the retrieved account matches the created one.
+
+
+
 # TODO 2: Test Invalid Email Input
 # - Check that invalid emails (e.g., "not-an-email") raise a validation error.
 # - Ensure accounts without an email cannot be created.
@@ -97,10 +107,20 @@ Each test should include:
 # - Ensure that creating an `Account()` without required fields raises an error.
 # - Validate that missing fields trigger the correct exception.
 
-# TODO 4: Test Positive Deposit
-# - Ensure `deposit()` correctly increases the account balance.
-# - Verify that depositing a positive amount updates the balance correctly.
+# ===========================
+# Test: Test Positive Deposit
+# Author: Alexander Baker
+# Date: 2025-02-01
+# Description: Ensure a positive deposit increases balance
+# ===========================
+def test_positive_deposit():
+    """Test depositing a positive number"""
+    account = Account(balance=0.0)
 
+    # Attempt to deposit a positive number
+    account.deposit(100.0)
+    assert account.balance == 100.0
+    
 # TODO 5: Test Deposit with Zero/Negative Values
 # - Ensure `deposit()` raises an error for zero or negative amounts.
 # - Verify that balance remains unchanged after an invalid deposit attempt.
