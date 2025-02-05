@@ -6,6 +6,7 @@ from random import randrange
 import pytest
 from models import db
 from models.account import Account, DataValidationError
+from sqlalchemy.exc import IntegrityError
 
 ACCOUNT_DATA = {}
 
@@ -93,9 +94,22 @@ Each test should include:
 # - Check that invalid emails (e.g., "not-an-email") raise a validation error.
 # - Ensure accounts without an email cannot be created.
 
-# TODO 3: Test Missing Required Fields
-# - Ensure that creating an `Account()` without required fields raises an error.
-# - Validate that missing fields trigger the correct exception.
+# ===========================
+# Test: Missing Required Fields
+# Author: Sarel Erasmus
+# Date: 2025-02-05
+# Description: Ensure that creating an 'Account()' without required fields raises an error.
+# ===========================
+
+def test_missing_required_fields():
+    # Create account that has the required fields not included
+    account = Account()
+
+    # Pytest is expecting an Integrity Error since the account object doesn't have the required fields
+    with pytest.raises(IntegrityError):
+        # Try to commit this account to the database to make sure it produces an error
+        db.session.add(account)
+        db.session.commit()
 
 # TODO 4: Test Positive Deposit
 # - Ensure `deposit()` correctly increases the account balance.
