@@ -92,6 +92,33 @@ Each test should include:
 # TODO 2: Test Invalid Email Input
 # - Check that invalid emails (e.g., "not-an-email") raise a validation error.
 # - Ensure accounts without an email cannot be created.
+# ===========================
+# Test: Account Role Assignment
+# Author: Jacob Kasbohm
+# Date: 2025-02-05
+# Description: Test invalid email input.
+# ===========================
+def validate_email():
+    """Test invalid email formats that should raise a validation error."""
+
+    # Create an account with an invalid email
+    invalid_emails = [
+        "not-an-email",  # Missing '@' and domain
+        "spacein name@x.com", # Space in username
+        "plainaddress@",  # Missing domain
+        "@missingusername.com",  # Missing username
+        "user@.com",  # Invalid domain part
+        "user@domain,com",  # Invalid character in domain
+        "user@domain..com",  # Consecutive dots in domain
+        "user@domain_with_space .com"  # Spaces in domain
+    ]
+
+    for email in invalid_emails:
+        account = Account(name="John Doe", email=email, role="user")
+        
+        # Validate email and expect DataValidationError to be raised
+        with pytest.raises(DataValidationError):
+            account.validate_email()  # This should raise an error for invalid emails
 
 # TODO 3: Test Missing Required Fields
 # - Ensure that creating an `Account()` without required fields raises an error.
