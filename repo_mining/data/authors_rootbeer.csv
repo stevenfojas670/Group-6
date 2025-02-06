@@ -1,0 +1,246 @@
+Date,Filename,Author
+2024-09-12T10:16:21Z,app/src/main/AndroidManifest.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/drawable/ic_check_circle_green_24dp.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/drawable/ic_error_circle_outline_red_24dp.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/drawable/ic_info_outline_white_24dp.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/drawable/ic_lock_open_white_24dp.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/layout/activity_main.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/layout/item_root_check.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/menu/menu_main.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/values/colors.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/values/dimens.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/values/strings.xml,GitHub
+2024-09-12T10:16:21Z,app/src/main/res/values/styles.xml,GitHub
+2024-09-09T15:16:19Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/ic_launcher-playstore.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-hdpi/ic_launcher.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-hdpi/ic_launcher_round.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-mdpi/ic_launcher.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-mdpi/ic_launcher_round.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xhdpi/ic_launcher.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xhdpi/ic_launcher_round.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxhdpi/ic_launcher.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxxhdpi/ic_launcher.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png,Scott Alexander-Bown
+2021-05-08T16:42:23Z,app/src/main/res/values/ic_launcher_background.xml,Scott Alexander-Bown
+2021-05-08T14:18:37Z,app/src/main/AndroidManifest.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,GitHub
+2021-05-08T14:18:37Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,GitHub
+2021-05-08T14:18:37Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_18dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_36dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-hdpi/ic_lock_open_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_18dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_36dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-mdpi/ic_lock_open_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_cross_red_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_18dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_36dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_lock_open_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xhdpi/ic_tick_green_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_18dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_36dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxhdpi/ic_lock_open_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_18dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_36dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable-xxxhdpi/ic_lock_open_white_24dp.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable/ic_check_circle_green_24dp.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable/ic_error_circle_outline_red_24dp.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable/ic_info_outline_white_24dp.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable/ic_lock_open_white_24dp.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/drawable/pint_glass.png,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/layout/activity_main.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/layout/content_main.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/layout/item_root_check.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/menu/menu_main.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/values-w820dp/dimens.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/values/attrs.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/values/dimens.xml,GitHub
+2021-05-08T14:18:37Z,app/src/main/res/values/strings.xml,GitHub
+2020-03-11T09:38:15Z,art/RootBeer-tv-graphic.png,mat
+2020-03-11T09:38:15Z,art/tv-1.png,mat
+2020-03-11T09:38:15Z,art/tv-2.png,mat
+2020-03-11T09:38:15Z,art/tv-3.png,mat
+2020-03-11T09:28:40Z,app/src/main/AndroidManifest.xml,GitHub
+2020-03-11T09:28:40Z,app/src/main/res/layout/activity_main.xml,GitHub
+2020-02-07T14:44:11Z,art/sticker.png,GitHub
+2020-02-04T11:41:46Z,art/sticker.png,mat
+2020-02-03T20:42:40Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,GitHub
+2020-02-03T20:42:40Z,app/src/main/AndroidManifest.xml,GitHub
+2020-02-03T20:42:40Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,GitHub
+2020-02-03T20:42:40Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,GitHub
+2020-02-03T20:42:40Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,GitHub
+2020-02-03T20:42:40Z,app/src/main/res/layout/activity_main.xml,GitHub
+2020-02-03T20:42:40Z,app/src/main/res/values/styles.xml,GitHub
+2019-11-16T02:45:47Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,Daniel Kutik
+2019-11-16T02:39:54Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Daniel Kutik
+2019-11-16T02:39:54Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,Daniel Kutik
+2019-11-16T02:39:54Z,app/src/main/res/layout/activity_main.xml,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/main/AndroidManifest.xml,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/main/res/layout/activity_main.xml,Daniel Kutik
+2019-11-16T02:34:58Z,app/src/main/res/values/styles.xml,Daniel Kutik
+2019-03-14T12:24:58Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2018-03-20T17:57:33Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,GitHub
+2018-03-16T16:42:19Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,altvnv
+2017-05-12T21:31:11Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,GitHub
+2017-05-12T21:31:11Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,GitHub
+2017-05-12T21:31:11Z,app/src/main/res/layout/activity_main.xml,GitHub
+2017-05-12T21:31:11Z,app/src/main/res/layout/content_main.xml,GitHub
+2017-05-12T21:31:11Z,app/src/main/res/values/attrs.xml,GitHub
+2017-05-12T21:31:11Z,app/src/main/res/values/strings.xml,GitHub
+2017-05-11T17:13:00Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,Frieder Bluemle
+2017-05-11T17:13:00Z,app/src/main/res/layout/activity_main.xml,Frieder Bluemle
+2017-05-11T17:13:00Z,app/src/main/res/layout/content_main.xml,Frieder Bluemle
+2017-05-11T17:13:00Z,app/src/main/res/values/attrs.xml,Frieder Bluemle
+2017-05-11T17:13:00Z,app/src/main/res/values/strings.xml,Frieder Bluemle
+2017-05-11T16:57:30Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,Frieder Bluemle
+2017-03-29T11:18:37Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2017-03-24T14:16:12Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2017-03-24T14:16:12Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2017-03-24T13:41:16Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2017-03-24T13:41:16Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2017-02-15T12:53:36Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2016-07-01T20:21:13Z,art/ss_got_root_fail.png,Scott Alexander-Bown
+2016-07-01T20:21:13Z,art/ss_no_root_pass.png,Scott Alexander-Bown
+2016-07-01T20:14:26Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2016-07-01T20:13:52Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2016-07-01T20:13:52Z,app/src/main/res/layout/content_main.xml,Scott Alexander-Bown
+2016-07-01T20:13:28Z,art/RootBeer-feature-graphic.png,Scott Alexander-Bown
+2016-07-01T20:13:28Z,art/ss-got-root-fail.png,Scott Alexander-Bown
+2016-07-01T20:13:28Z,art/ss_home_b4_test.png,Scott Alexander-Bown
+2016-07-01T20:13:28Z,art/ss_info.png,Scott Alexander-Bown
+2016-07-01T20:13:06Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2016-07-01T15:34:35Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2016-07-01T15:34:26Z,app/src/main/res/layout/content_main.xml,Scott Alexander-Bown
+2016-07-01T15:34:26Z,app/src/main/res/values/colors.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/java/com/scottyab/rootbeer/sample/CheckRootTask.java,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/java/com/scottyab/rootbeer/sample/TextViewFont.java,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-hdpi/ic_action_github.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_18dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-hdpi/ic_info_outline_white_36dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-hdpi/ic_lock_open_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_18dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-mdpi/ic_info_outline_white_36dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-mdpi/ic_lock_open_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_action_github.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_cross_red_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_18dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_info_outline_white_36dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_lock_open_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xhdpi/ic_tick_green_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxhdpi/ic_action_github.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_18dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxhdpi/ic_info_outline_white_36dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxhdpi/ic_lock_open_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_18dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxxhdpi/ic_info_outline_white_36dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable-xxxhdpi/ic_lock_open_white_24dp.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/drawable/pint_glass.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/layout/content_main.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/menu/menu_main.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/mipmap-hdpi/ic_launcher.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/mipmap-mdpi/ic_launcher.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/mipmap-xhdpi/ic_launcher.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/mipmap-xxhdpi/ic_launcher.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/mipmap-xxxhdpi/ic_launcher.png,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values-w820dp/dimens.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values/attrs.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values/colors.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values/dimens.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values/strings.xml,Scott Alexander-Bown
+2016-07-01T14:40:45Z,app/src/main/res/values/styles.xml,Scott Alexander-Bown
+2016-04-01T15:04:36Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2016-03-16T22:45:19Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Mohammed Ezzat
+2015-10-01T15:20:16Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2015-10-01T12:26:13Z,app/src/main/AndroidManifest.xml,Alessandro Yuichi Okimoto
+2015-09-16T12:37:52Z,art/RootBeer-feature-graphic.png,Scott Alexander-Bown
+2015-09-16T12:37:52Z,art/rootbeer-icon-playstore.png,Scott Alexander-Bown
+2015-09-16T12:37:52Z,art/ss-got-root-fail.png,Scott Alexander-Bown
+2015-09-16T12:37:52Z,art/ss_info.png,Scott Alexander-Bown
+2015-09-16T12:37:52Z,art/ss_no_root_pass.png,Scott Alexander-Bown
+2015-09-16T12:14:10Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2015-09-16T12:14:10Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2015-09-16T12:14:10Z,app/src/main/res/values/colors.xml,Scott Alexander-Bown
+2015-06-30T15:31:31Z,art/rootbeerjesus.png,Scott Alexander-Bown
+2015-06-30T15:06:34Z,app/src/main/res/layout/activity_main.xml,Matthew Rollings
+2015-06-30T14:59:24Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2015-06-30T14:45:12Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2015-06-30T14:14:08Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/drawable-hdpi/ic_action_github.png,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/drawable-xhdpi/ic_action_github.png,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/drawable-xxhdpi/ic_action_github.png,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/menu/menu_main.xml,Scott Alexander-Bown
+2015-06-29T13:06:14Z,app/src/main/res/values/strings.xml,Scott Alexander-Bown
+2015-06-26T15:59:58Z,app/src/main/res/mipmap-hdpi/ic_launcher.png,Matthew Rollings
+2015-06-26T15:59:58Z,app/src/main/res/mipmap-mdpi/ic_launcher.png,Matthew Rollings
+2015-06-26T15:59:58Z,app/src/main/res/mipmap-xhdpi/ic_launcher.png,Matthew Rollings
+2015-06-26T15:59:58Z,app/src/main/res/mipmap-xxhdpi/ic_launcher.png,Matthew Rollings
+2015-06-26T15:59:58Z,app/src/main/res/mipmap-xxxhdpi/ic_launcher.png,Matthew Rollings
+2015-06-26T15:50:40Z,app/src/androidTest/java/com/scottyab/rootbeer/ApplicationTest.java,Scott Alexander-Bown
+2015-06-26T15:50:40Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2015-06-26T15:50:40Z,app/src/main/java/com/scottyab/rootbeer/sample/MainActivity.java,Scott Alexander-Bown
+2015-06-26T15:50:40Z,app/src/main/res/values/strings.xml,Scott Alexander-Bown
+2015-06-26T14:41:45Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Matthew Rollings
+2015-06-26T14:32:45Z,app/src/main/java/com/scottyab/rootchecker/Const.java,Matthew Rollings
+2015-06-26T14:32:45Z,app/src/main/java/com/scottyab/rootchecker/MainActivity.java,Matthew Rollings
+2015-06-26T14:32:45Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Matthew Rollings
+2015-06-19T17:21:37Z,app/jni/build.sh,Scott Alexander-Bown
+2015-06-19T17:21:37Z,app/jni/toolChecker.cpp,Scott Alexander-Bown
+2015-06-19T17:21:37Z,app/jni/toolChecker.h,Scott Alexander-Bown
+2015-06-19T17:21:37Z,app/src/main/java/com/scottyab/rootchecker/MainActivity.java,Scott Alexander-Bown
+2015-06-19T17:21:37Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Scott Alexander-Bown
+2015-06-19T17:21:37Z,app/src/main/java/com/scottyab/rootchecker/RootCheckNative.java,Scott Alexander-Bown
+2015-06-19T17:20:07Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Scott Alexander-Bown
+2015-06-19T11:06:02Z,app/jni/build.sh,Matthew Rollings
+2015-06-19T11:06:02Z,app/jni/toolChecker.cpp,Matthew Rollings
+2015-06-19T11:06:02Z,app/jni/toolChecker.h,Matthew Rollings
+2015-06-19T11:06:02Z,app/src/main/java/com/scottyab/rootchecker/RootCheckNative.java,Matthew Rollings
+2015-06-19T10:09:22Z,app/jni/build.sh,Matthew Rollings
+2015-06-19T10:09:22Z,app/jni/rootChecker.cpp,Matthew Rollings
+2015-06-19T10:09:22Z,app/jni/rootChecker.h,Matthew Rollings
+2015-06-19T10:09:22Z,app/src/main/java/com/scottyab/rootchecker/MainActivity.java,Matthew Rollings
+2015-06-19T10:09:22Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Matthew Rollings
+2015-06-19T10:09:22Z,app/src/main/java/com/scottyab/rootchecker/RootCheckNative.java,Matthew Rollings
+2015-06-19T09:05:10Z,app/src/androidTest/java/com/scottyab/rootchecker/ApplicationTest.java,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/AndroidManifest.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/java/com/scottyab/rootchecker/MainActivity.java,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/java/com/scottyab/rootchecker/RootCheck.java,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/java/com/scottyab/rootchecker/util/QLog.java,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/layout/activity_main.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/menu/menu_main.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/mipmap-hdpi/ic_launcher.png,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/mipmap-mdpi/ic_launcher.png,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/mipmap-xhdpi/ic_launcher.png,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/mipmap-xxhdpi/ic_launcher.png,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/values-w820dp/dimens.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/values/dimens.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/values/strings.xml,Scott Alexander-Bown
+2015-06-19T09:05:10Z,app/src/main/res/values/styles.xml,Scott Alexander-Bown
