@@ -19,7 +19,7 @@ class TestCounterEndpoints:
     def test_retrieve_an_existing_counter(self, client):
         testCounterName = 'test'
         client.post('/counters/'+testCounterName)
-        result = client.get('/counters/'+testCounterName)
-        
-        assert result.status_code == status.HTTP_200_OK
-        assert result.name == testCounterName
+        response = client.get('/counters/'+testCounterName)
+
+        assert response.status_code == status.HTTP_200_OK
+        assert bytes('[{"'+testCounterName,'utf-8') in response.data
