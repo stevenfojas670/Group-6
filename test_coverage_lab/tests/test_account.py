@@ -160,6 +160,25 @@ def test_valid_withdrawal():
 # - Verify that plaintext passwords are never stored in the database.
 # - Test password verification with `set_password()` and `check_password()`.
 
+# ===========================
+# Author: Jesse Ortega
+# Date: 2025-02-05
+# ===========================
+
+def test_password_hashing():
+    # Create test account
+    test_account = Account(name="Jesse Ortega", email="ortegj8@unlv.nevada.edu")
+    
+    # Set password to test account
+    password = "LetMeIn123_thisIsASecurePassword_qwertyDirty_burritoTorpedo"
+    test_account.set_password(password)
+
+    # Confirm that plain-text password is not stored within object
+    assert test_account.password_hash != password
+
+    # Checks if the given password matches the stored password
+    assert test_account.check_password(password)
+
 # TODO 9: Test Role Assignment
 # - Ensure that `change_role()` correctly updates an account’s role.
 # - Verify that the updated role is stored in the database.
