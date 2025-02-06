@@ -6,7 +6,6 @@ from random import randrange
 import pytest
 from models import db
 from models.account import Account, DataValidationError
-from sqlalchemy.exc import IntegrityError
 
 ACCOUNT_DATA = {}
 
@@ -90,41 +89,45 @@ Each test should include:
 # - Ensure `to_dict()` correctly converts an account to a dictionary format.
 # - Verify that all expected fields are included in the dictionary.
 
-# TODO 2: Test Updating Account Email
-# - Ensure an account’s email can be successfully updated.
-# - Verify that the updated email is stored in the database.
-
+# TODO 2: Test Invalid Email Input
+# - Check that invalid emails (e.g., "not-an-email") raise a validation error.
+# - Ensure accounts without an email cannot be created.
 # ===========================
-# Test: Missing Required Fields
-# Author: Sarel Erasmus
+# Test: Account Role Assignment
+# Author: Jacob Kasbohm
 # Date: 2025-02-05
-# Description: Ensure that creating an 'Account()' without required fields raises an error.
+# Description: Test invalid email input.
 # ===========================
+def validate_email():
+    """Test invalid email formats that should raise a validation error."""
 
-def test_missing_required_fields():
-    # Create account that has the required fields not included
-    account = Account()
+    # Create an account with an invalid email
+    invalid_emails = [
+        "not-an-email",  # Missing '@' and domain
+        "spacein name@x.com", # Space in username
+        "plainaddress@",  # Missing domain
+        "@missingusername.com",  # Missing username
+        "user@.com",  # Invalid domain part
+        "user@domain,com",  # Invalid character in domain
+        "user@domain..com",  # Consecutive dots in domain
+        "user@domain_with_space .com"  # Spaces in domain
+    ]
 
-    # Pytest is expecting an Integrity Error since the account object doesn't have the required fields
-    with pytest.raises(IntegrityError):
-        # Try to commit this account to the database to make sure it produces an error
-        db.session.add(account)
-        db.session.commit()
+    for email in invalid_emails:
+        account = Account(name="John Doe", email=email, role="user")
+        
+        # Validate email and expect DataValidationError to be raised
+        with pytest.raises(DataValidationError):
+            account.validate_email()  # This should raise an error for invalid emails
 
-# ===========================
-# Test: Test Positive Deposit
-# Author: Alexander Baker
-# Date: 2025-02-01
-# Description: Ensure a positive deposit increases balance
-# ===========================
-def test_positive_deposit():
-    """Test depositing a positive number"""
-    account = Account(balance=0.0)
+# TODO 3: Test Missing Required Fields
+# - Ensure that creating an `Account()` without required fields raises an error.
+# - Validate that missing fields trigger the correct exception.
 
-    # Attempt to deposit a positive number
-    account.deposit(100.0)
-    assert account.balance == 100.0
-    
+# TODO 4: Test Positive Deposit
+# - Ensure `deposit()` correctly increases the account balance.
+# - Verify that depositing a positive amount updates the balance correctly.
+
 # TODO 5: Test Deposit with Zero/Negative Values
 # - Ensure `deposit()` raises an error for zero or negative amounts.
 # - Verify that balance remains unchanged after an invalid deposit attempt.
@@ -151,6 +154,7 @@ def test_valid_withdrawal():
     account.withdraw(amount_to_decrease_balance)
     assert account.balance > amount_to_decrease_balance
     
+       
 # TODO 7: Test Withdrawal with Insufficient Funds
 # - Ensure `withdraw()` raises an error when attempting to withdraw more than available balance.
 # - Verify that the balance remains unchanged after a failed withdrawal.
@@ -159,25 +163,6 @@ def test_valid_withdrawal():
 # - Ensure that passwords are stored as **hashed values**.
 # - Verify that plaintext passwords are never stored in the database.
 # - Test password verification with `set_password()` and `check_password()`.
-
-# ===========================
-# Author: Jesse Ortega
-# Date: 2025-02-05
-# ===========================
-
-def test_password_hashing():
-    # Create test account
-    test_account = Account(name="Jesse Ortega", email="ortegj8@unlv.nevada.edu")
-    
-    # Set password to test account
-    password = "LetMeIn123_thisIsASecurePassword_qwertyDirty_burritoTorpedo"
-    test_account.set_password(password)
-
-    # Confirm that plain-text password is not stored within object
-    assert test_account.password_hash != password
-
-    # Checks if the given password matches the stored password
-    assert test_account.check_password(password)
 
 # TODO 9: Test Role Assignment
 # - Ensure that `change_role()` correctly updates an account’s role.

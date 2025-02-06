@@ -26,3 +26,11 @@ def get_counter(name):
   if counter_exists(name):
     return jsonify({name: COUNTERS[name]}, status.HTTP_200_OK)  
 
+@app.route('/counters/<name>', methods=['PUT'])
+def increment_counter(name):
+  """Create a counter"""
+  if not counter_exists(name):
+      return jsonify({"error": f"Counter {name} does not exist."}), status.HTTP_409_CONFLICT
+  COUNTERS[name] += 1
+  return jsonify({name: COUNTERS[name]}), status.HTTP_200_OK
+
