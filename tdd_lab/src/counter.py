@@ -34,3 +34,11 @@ def increment_counter(name):
   COUNTERS[name] += 1
   return jsonify({name: COUNTERS[name]}), status.HTTP_200_OK
 
+@app.route('/counters/<name>', methods=['DELETE'])
+def delete_counter(name):
+  """Delete a counter"""
+  if not counter_exists(name):
+      return jsonify({"error": f"Counter {name} does not exist."}), status.HTTP_409_CONFLICT
+  
+  del COUNTERS[name]
+  return jsonify({"message": f"Counter {name} has been deleted."}), status.HTTP_200_OK
