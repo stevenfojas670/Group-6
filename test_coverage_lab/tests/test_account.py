@@ -6,6 +6,7 @@ from random import randrange
 import pytest
 from models import db
 from models.account import Account, DataValidationError
+from sqlalchemy.exc import IntegrityError
 
 ACCOUNT_DATA = {}
 
@@ -93,19 +94,22 @@ Each test should include:
 # - Ensure an account’s email can be successfully updated.
 # - Verify that the updated email is stored in the database.
 
-# TODO 3: Test Finding an Account by ID
-# - Create an account and retrieve it using its ID.
-# - Ensure the retrieved account matches the created one.
+# ===========================
+# Test: Missing Required Fields
+# Author: Sarel Erasmus
+# Date: 2025-02-05
+# Description: Ensure that creating an 'Account()' without required fields raises an error.
+# ===========================
 
+def test_missing_required_fields():
+    # Create account that has the required fields not included
+    account = Account()
 
-
-# TODO 2: Test Invalid Email Input
-# - Check that invalid emails (e.g., "not-an-email") raise a validation error.
-# - Ensure accounts without an email cannot be created.
-
-# TODO 3: Test Missing Required Fields
-# - Ensure that creating an `Account()` without required fields raises an error.
-# - Validate that missing fields trigger the correct exception.
+    # Pytest is expecting an Integrity Error since the account object doesn't have the required fields
+    with pytest.raises(IntegrityError):
+        # Try to commit this account to the database to make sure it produces an error
+        db.session.add(account)
+        db.session.commit()
 
 # ===========================
 # Test: Test Positive Deposit
@@ -147,7 +151,6 @@ def test_valid_withdrawal():
     account.withdraw(amount_to_decrease_balance)
     assert account.balance > amount_to_decrease_balance
     
-       
 # TODO 7: Test Withdrawal with Insufficient Funds
 # - Ensure `withdraw()` raises an error when attempting to withdraw more than available balance.
 # - Verify that the balance remains unchanged after a failed withdrawal.
@@ -156,6 +159,25 @@ def test_valid_withdrawal():
 # - Ensure that passwords are stored as **hashed values**.
 # - Verify that plaintext passwords are never stored in the database.
 # - Test password verification with `set_password()` and `check_password()`.
+
+# ===========================
+# Author: Jesse Ortega
+# Date: 2025-02-05
+# ===========================
+
+def test_password_hashing():
+    # Create test account
+    test_account = Account(name="Jesse Ortega", email="ortegj8@unlv.nevada.edu")
+    
+    # Set password to test account
+    password = "LetMeIn123_thisIsASecurePassword_qwertyDirty_burritoTorpedo"
+    test_account.set_password(password)
+
+    # Confirm that plain-text password is not stored within object
+    assert test_account.password_hash != password
+
+    # Checks if the given password matches the stored password
+    assert test_account.check_password(password)
 
 # TODO 9: Test Role Assignment
 # - Ensure that `change_role()` correctly updates an account’s role.
