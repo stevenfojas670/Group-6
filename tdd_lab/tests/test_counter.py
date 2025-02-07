@@ -26,5 +26,5 @@ class TestCounterEndpoints:
 
     def test_create_counter(self, client):
         """It should create a counter"""
-        result = client.post(r'\counter\foo')
+        result = client.post('/counter/foo')
         assert result.status_code == status.HTTP_201_CREATED
