@@ -10,6 +10,7 @@ how to call the web service and assert what it should return.
 - The service must be able to update a counter by name.
 - The service must be able to read the counter
 """
+
 import pytest
 from src import app
 from src import status
@@ -28,8 +29,23 @@ class TestCounterEndpoints:
         result = client.post('/counters/foo')
         assert result.status_code == status.HTTP_201_CREATED
 
+    def test_retrieve_an_existing_counter(self, client):
+        testCounterName = 'test'
+        client.post('/counters/'+testCounterName)
+        response = client.get('/counters/'+testCounterName)
+
+        assert response.status_code == status.HTTP_200_OK
+        assert bytes('[{"'+testCounterName,'utf-8') in response.data
+
     def test_prevent_updating_non_existent_counter(self, client):
         # This test should not increment a counter that doesn't exist
         counter = client.put('/counters/non_existent_counter')
         # Assert that we get a 409 error from the PUT request
+        assert counter.status_code == status.HTTP_409_CONFLICT
+
+    # Jesse Ortega
+    def test_prevent_deletion_non_existent_counter(self, client):
+        # This test should attempt to delete a counter that doesn't exist
+        counter = client.delete('/counters/non_existent_counter')
+        # Assert that we get a 409 error from the DELETE request
         assert counter.status_code == status.HTTP_409_CONFLICT

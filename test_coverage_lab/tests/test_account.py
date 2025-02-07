@@ -151,6 +151,38 @@ def test_valid_withdrawal():
     account.withdraw(amount_to_decrease_balance)
     assert account.balance > amount_to_decrease_balance
     
+
+# ===========================
+# Test 7: Test Withdrawal with Insufficient Funds + positive withdraw amt
+# Author: Eli Rosales
+# Date: 2025-02-05
+# Description: 
+#   - Ensure `withdraw()` raises an error when attempting to withdraw more than available balance.
+#   - Verify that the balance remains unchanged after a failed withdrawal.
+# ===========================
+
+def test_valid_withdrawal_with_insufficient_funds():
+    # Create new account for unit test
+    account = Account(name="Eli Rosales", email="rosale5@unlv.nevada.edu", balance=100.00)
+    amt = account.balance
+    # Attempt to withdraw amt > bal (120 > 100)
+    with pytest.raises(DataValidationError):
+        account.withdraw(120) #raise error if withdraw more than balance
+    #Verify that the balance remains unchanged after a failed withdrawal.
+    assert amt == account.balance
+
+# ===========================
+# Test 7 continued: Positive withdraw amt
+# Author: Eli Rosales
+# Date: 2025-02-05
+# Description: 
+#   - raise error if withdraw is negative number
+# ===========================
+
+def test_valid_withdrawal_amt_must_be_positive():
+    account = Account(name="Eli Rosales", email="rosale5@unlv.nevada.edu", balance=100.00)
+    with pytest.raises(DataValidationError):
+        account.withdraw(-1) #raise error if withdraw amount is negative
 # TODO 7: Test Withdrawal with Insufficient Funds
 # - Ensure `withdraw()` raises an error when attempting to withdraw more than available balance.
 # - Verify that the balance remains unchanged after a failed withdrawal.
