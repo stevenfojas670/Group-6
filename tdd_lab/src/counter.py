@@ -41,4 +41,4 @@ def delete_counter(name):
       return jsonify({"error": f"Counter {name} does not exist."}), status.HTTP_409_CONFLICT
   
   del COUNTERS[name]
-  return jsonify({"message": f"Counter {name} has been deleted."}), status.HTTP_409_CONFLICT
+  return jsonify({"message": f"Counter {name} has been deleted."}), status.HTTP_404_NOT_FOUND
