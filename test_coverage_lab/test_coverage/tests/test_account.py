@@ -96,6 +96,42 @@ Each test should include:
 # TODO 1: Test Default Values
 # - Ensure that new accounts have the correct default values (e.g., `disabled=False`).
 # - Check if an account has no assigned role, it defaults to "user".
+# ===========================
+# Test: Test Default Values
+# Author: Steven Fojas
+# Date: 2025-02-06
+# Description: Check if an account has no assigned role and it is defaulting to "user"
+# ===========================
+def test_default_values():
+    # Create a new account
+    # Check if the role has defaulted to "user"
+    # if not defaulted to user, test fails
+    # delete account
+
+    new_user = Account(
+        name="Mike",
+        email="MikeJones@gmail.com",
+        phone_number="2813308004",
+    )
+    db.session.add(new_user)
+    db.session.commit()
+
+    # Pull user
+    user = db.session.execute(db.select(Account).filter_by(id=new_user.id)).scalar_one()
+
+    # Checking if role is user
+    assert user.role == 'user'
+
+    # Delete account
+    user.delete()
+    
+    deleted_user = db.session.execute(db.select(Account).filter_by(id=new_user.id)).scalar_one_or_none()
+
+    # Confirming that the account is deleted
+    assert deleted_user is None
+
+    
+        
 
 # TODO 2: Test Updating Account Email
 # - Ensure an account’s email can be successfully updated.
