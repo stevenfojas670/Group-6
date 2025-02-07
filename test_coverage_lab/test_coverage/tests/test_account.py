@@ -93,9 +93,6 @@ Each test should include:
 - A meaningful **commit message** when submitting their PR.
 """
 
-# TODO 1: Test Default Values
-# - Ensure that new accounts have the correct default values (e.g., `disabled=False`).
-# - Check if an account has no assigned role, it defaults to "user".
 # ===========================
 # Test: Test Default Values
 # Author: Steven Fojas
