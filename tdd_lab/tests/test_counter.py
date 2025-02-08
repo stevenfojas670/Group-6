@@ -10,7 +10,6 @@ how to call the web service and assert what it should return.
 - The service must be able to update a counter by name.
 - The service must be able to read the counter
 """
-
 import pytest
 from src import app
 from src import status
@@ -26,7 +25,14 @@ class TestCounterEndpoints:
 
     def test_create_counter(self, client):
         """It should create a counter"""
-        result = client.post('/counter/foo')
+        result = client.post('/counters/foo')
+        assert result.status_code == status.HTTP_201_CREATED
+
+    # Steven Fojas
+    def minecraft_counter(self, client):
+        # Creates a counter on the minecraft endpoint
+
+        result = client.post('/minecraft/steve')
         assert result.status_code == status.HTTP_201_CREATED
 
     #Jacob Kasbohm

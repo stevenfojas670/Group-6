@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """
 Counter API Implementation
 """
@@ -6,43 +5,30 @@ from flask import Flask, jsonify
 from . import status
 
 app = Flask(__name__)
-
-COUNTERS = {}
-
-@app.route('/counters/<name>', methods=['POST'])
-def create_counter(name):
-    """Create a counter"""
-    if counter_exists(name):
-        return jsonify({"error": f"Counter {name} already exists"}), status.HTTP_409_CONFLICT
-    COUNTERS[name] = 0
-    return jsonify({name: COUNTERS[name]}), status.HTTP_201_CREATED
-
-def counter_exists(name):
-    """Check if counter exists"""
-    return name in COUNTERS
-||||||| aab6134
-=======
-"""
-Counter API Implementation
-"""
-from flask import Flask, jsonify
-from . import status
-
-app = Flask(__name__)
-
-COUNTERS = {}
-
-@app.route('/counters/<name>', methods=['POST'])
-def create_counter(name):
-    """Create a counter"""
-    if counter_exists(name):
-        return jsonify({"error": f"Counter {name} already exists"}), status.HTTP_409_CONFLICT
-    COUNTERS[name] = 0
-    return jsonify({name: COUNTERS[name]}), status.HTTP_201_CREATED
 
 def counter_exists(name):
   """Check if counter exists"""
   return name in COUNTERS
+
+COUNTERS = {}
+
+@app.route('/counters/<name>', methods=['POST'])
+def create_counter(name):
+    """Create a counter"""
+    if counter_exists(name):
+        return jsonify({"error": f"Counter {name} already exists"}), status.HTTP_409_CONFLICT
+    COUNTERS[name] = 0
+    return jsonify({name: COUNTERS[name]}), status.HTTP_201_CREATED
+
+Minecraft_Coutner = {}
+
+@app.route('/minecraft/<name>', methods=['POST'])
+def create_minecraft_counter(name):
+    """Create a counter"""
+    if counter_exists(name):
+        return jsonify({"error": f"Counter {name} already exists"}), status.HTTP_409_CONFLICT
+    COUNTERS[name] = 0
+    return jsonify({name: Minecraft_Coutner[name]}), status.HTTP_201_CREATED
 
 @app.route('/counters/<name>', methods=['GET'])
 def get_counter(name):
@@ -66,4 +52,3 @@ def delete_counter(name):
   
   del COUNTERS[name]
   return jsonify({"message": f"Counter {name} has been deleted."}), status.HTTP_404_NOT_FOUND
->>>>>>> 3c41b9a3891c22090b31837f559f76150a1da167
