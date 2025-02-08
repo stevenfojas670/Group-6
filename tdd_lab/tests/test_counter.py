@@ -49,3 +49,6 @@ class TestCounterEndpoints:
         counter = client.delete('/counters/non_existent_counter')
         # Assert that we get a 409 error from the DELETE request
         assert counter.status_code == status.HTTP_409_CONFLICT
+
+    #Ernesto Dones
+
