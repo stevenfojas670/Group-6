@@ -1,0 +1,15 @@
+The Scottyab/rootbeer repository has been an active and evolving project, with significant contributions from a diverse group of developers.
+The purpose of this report is to highlight the key activities in the project, identify which developers are most engaged, 
+and provide insights into the state of the codebase and the progress being made.
+
+There were several git commands I fonud useful during this lab
+git log --pretty=format:"%h %an %ad" --date=short --name-only
+This let me find all authors who touched a file
+
+git fetch upstream
+this was very useful to check if i needed to synch my edits with anything else that was added to the repo.
+
+git checkout
+I used this a few times to create and checkout a new branch.
+
+The URL to my fork repo: https://github.com/EvanShumaker/Group-6
