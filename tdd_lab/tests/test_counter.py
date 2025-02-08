@@ -51,4 +51,28 @@ class TestCounterEndpoints:
         assert counter.status_code == status.HTTP_409_CONFLICT
 
     #Ernesto Dones
+    def test_reset_all_counter(self, client):
+        #creating dummy counters for the test
+        client.post('/counters/foo')    
+        client.post('/counters/fooo')
+        client.post('/counters/foooo')
+
+        #here we will call the function (in account.py) that 
+        #clear the tokens 
+        response = client.post('/counters/reset')
+        #if this errors then we out
+        assert response.status_code == status.HTTP_200_OK
+
+        #if this "Counters reseted" string exist in the response body
+        #then we know our fucntion was executed, else we must error out
+        assert bytes("Counters reseted", "utf-8") in response.data
+
+        #we know the fucntion in account.py executed, now we need to retrieve the counters to 
+        #make sure they actually were erased 
+        response = client.get('/counters/')
+
+        #the response.data message should be empty cuz now all the counters has been reseted
+        assert bytes("", "utf-8") in response.data
+
+
 
