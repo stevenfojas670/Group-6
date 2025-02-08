@@ -264,9 +264,6 @@ def test_role_assignment():
 # - Verify that attempting to retrieve a deleted account returns `None` or raises an error.
 
 # ===========================
-# Test: Test Deleting an Account
-# Author: Ernesto Dones Sierra
-# Date: 2025-02-07
 # Description: interesting, dummy.delete() crashes the program and it shouldnt i wonder why? unless my syntax is wrong 
 # i dont understand why the delete() fucntion crashes the execution 
 # ===========================
