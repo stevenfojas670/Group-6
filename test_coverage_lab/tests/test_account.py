@@ -90,6 +90,30 @@ Each test should include:
 # - Ensure `to_dict()` correctly converts an account to a dictionary format.
 # - Verify that all expected fields are included in the dictionary.
 
+# ===========================
+# Test: Test Account Serialization
+# Author: Cassandra Tolton
+# Date: 2025-02-07
+# Description:  `to_dict()` correctly converts an account to a dictionary format and
+#               Verify that all expected fields are included in the dictionary.
+# ===========================
+
+def test_account_serialization():
+    account = Account(name="Cass Tolton", email="tolton@unlv.nevada.edu", balance=420.00)
+    
+    #serialize the account and check if it turns it into a dictionary
+    accountSerialized = account.to_dict()
+    
+    #make sure the new serialzed account is a dictionary
+    assert isinstance(accountSerialized, dict)
+    
+    items=  ['id', 'name', 'email', 'phone_number', 'disabled', 'date_joined', 'balance', 'role']
+    
+    #check and make sure the dictionary has all expected fields.
+    for x in range(len(items)):
+        assert items[x] in accountSerialized
+
+
 # TODO 2: Test Updating Account Email
 # - Ensure an account’s email can be successfully updated.
 # - Verify that the updated email is stored in the database.
