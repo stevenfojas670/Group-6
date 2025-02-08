@@ -43,6 +43,12 @@ class TestCounterEndpoints:
         # Assert that we get a 409 error from the PUT request
         assert counter.status_code == status.HTTP_409_CONFLICT
 
+    #eli rosales
+    def test_delete_a_counter(self, client):
+        """It should delete a counter"""
+        counter = client.delete('/counters/foo')
+        assert counter.status_code == status.HTTP_404_NOT_FOUND
+
     # Jesse Ortega
     def test_prevent_deletion_non_existent_counter(self, client):
         # This test should attempt to delete a counter that doesn't exist
