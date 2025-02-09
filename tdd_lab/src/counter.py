@@ -6,6 +6,10 @@ from . import status
 
 app = Flask(__name__)
 
+def counter_exists(name):
+  """Check if counter exists"""
+  return name in COUNTERS
+
 COUNTERS = {}
 
 emails = {}
