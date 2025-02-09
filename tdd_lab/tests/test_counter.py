@@ -10,7 +10,6 @@ how to call the web service and assert what it should return.
 - The service must be able to update a counter by name.
 - The service must be able to read the counter
 """
-
 import pytest
 from src import app
 from src import status
@@ -26,7 +25,14 @@ class TestCounterEndpoints:
 
     def test_create_counter(self, client):
         """It should create a counter"""
-        result = client.post('/counter/foo')
+        result = client.post('/counters/foo')
+        assert result.status_code == status.HTTP_201_CREATED
+
+    # Steven Fojas
+    def minecraft_counter(self, client):
+        # Creates a counter on the minecraft endpoint
+
+        result = client.post('/minecraft/steve')
         assert result.status_code == status.HTTP_201_CREATED
 
     #Jacob Kasbohm
@@ -70,3 +76,30 @@ class TestCounterEndpoints:
         counter = client.delete('/counters/non_existent_counter')
         # Assert that we get a 409 error from the DELETE request
         assert counter.status_code == status.HTTP_409_CONFLICT
+
+    #Ernesto Dones
+    def test_reset_all_counter(self, client):
+        #creating dummy counters for the test
+        client.post('/counters/foo')    
+        client.post('/counters/fooo')
+        client.post('/counters/foooo')
+
+        #here we will call the function (in account.py) that 
+        #clear the tokens 
+        response = client.post('/counters/reset')
+        #if this errors then we out
+        assert response.status_code == status.HTTP_200_OK
+
+        #if this "Counters reseted" string exist in the response body
+        #then we know our fucntion was executed, else we must error out
+        assert bytes("Counters reseted", "utf-8") in response.data
+
+        #we know the fucntion in account.py executed, now we need to retrieve the counters to 
+        #make sure they actually were erased 
+        response = client.get('/counters/')
+
+        #the response.data message should be empty cuz now all the counters has been reseted
+        assert bytes("", "utf-8") in response.data
+
+
+

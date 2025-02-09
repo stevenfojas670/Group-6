@@ -1,7 +1,3 @@
-
-Name: Ernesto Dones Sierra
-Email: donessie@unlv.nevada.edu
-
 Name: Evan Shumaker
 Email: shumae1@unlv.nevada.edu
 
@@ -28,5 +24,3 @@ Email: ortegj8@unlv.nevada.edu
 
 Name: Cassandra Tolton
 Email: Tolton@unlv.nevada.edu
-
-
