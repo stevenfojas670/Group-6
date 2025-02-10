@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    defaults:
+      run:
+        working-directory: ci_lab  # Set the default working directory for all steps
 
     steps:
       - name: Checkout Repository
