@@ -202,7 +202,7 @@ class TestCounterEndpoints:
 
     # ===========================
     # Test: Prevent resetting a non-existent counter
-    # Author: Student 7
+    # Author: Daniel Levy
     # Modification: Ensure resetting a non-existent counter does not create it.
     # ===========================
     def test_prevent_resetting_non_existent_counter(self, client):
@@ -211,7 +211,8 @@ class TestCounterEndpoints:
 
         assert response.status_code == HTTPStatus.NOT_FOUND
 
-        # TODO: Add an assertion to verify the error message contains the word 'not found'
+        # Checks if the string "not found" was returned in the error message
+        assert "not found" in response.data.decode()
 
     # ===========================
     # Test: Get total number of counters
