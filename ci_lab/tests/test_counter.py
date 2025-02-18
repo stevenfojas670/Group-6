@@ -241,7 +241,7 @@ class TestCounterEndpoints:
 
     # ===========================
     # Test: Retrieve counters with values greater than a threshold
-    # Author: Student 9
+    # Author: Evan Shumaker
     # Modification: Ensure the threshold is exclusive.
     # ===========================
     def test_counters_greater_than_threshold(self, client):
@@ -255,6 +255,8 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to check that 'a' (value=10) is **excluded**.
+        assert "a" not in response.get_json()
+
 
     # ===========================
     # Test: Retrieve counters with values less than a threshold
