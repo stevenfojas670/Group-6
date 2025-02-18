@@ -90,8 +90,8 @@ class TestCounterEndpoints:
         """It should return 405 for unsupported HTTP methods"""
         response = client.patch('/counters/test_counter')
         assert response.status_code == HTTPStatus.METHOD_NOT_ALLOWED
-    
-    
+
+
     """Test cases for Extended Counter API"""
 
     # ===========================
@@ -108,7 +108,7 @@ class TestCounterEndpoints:
         response = client.get('/counters/total')
 
         assert response.status_code == HTTPStatus.OK
-        
+
         # TODO: Add an assertion to check the correct total value
         total = response.get_json()
         assert total['total'] == 1
@@ -131,7 +131,7 @@ class TestCounterEndpoints:
 
         assert response.status_code == HTTPStatus.OK
         counters = response.get_json()
-        assert len(counters) <= 2  
+        assert len(counters) <= 2
 
         # TODO: Add an assertion to ensure the returned counters are sorted correctly
         assert counters["b"] >= counters["a"]
@@ -150,7 +150,7 @@ class TestCounterEndpoints:
         response = client.get('/counters/bottom/1')
 
         assert response.status_code == HTTPStatus.OK
-        assert min(response.get_json().values()) == 0  
+        assert min(response.get_json().values()) == 0
 
         # Add an assertion to check that 'a' is indeed in the response
         assert response.get_json() == {"a":0}
@@ -183,14 +183,14 @@ class TestCounterEndpoints:
         response_zero = client.put('/counters/test1/set/0')
         response_negative = client.put('/counters/test1/set/-3')
 
-        assert response_zero.status_code == HTTPStatus.OK  
-        assert response_negative.status_code == HTTPStatus.BAD_REQUEST  
-        
+        assert response_zero.status_code == HTTPStatus.OK
+        assert response_negative.status_code == HTTPStatus.BAD_REQUEST
+
         # TODO: Add an assertion to verify the response message contains a clear error
 
     # ===========================
     # Test: Reset a single counter
-    # Author: Student 6
+    # Author: Ernesto Dones Sierra
     # Modification: Ensure counter still exists after reset.
     # ===========================
     def test_reset_single_counter(self, client):
@@ -204,6 +204,9 @@ class TestCounterEndpoints:
         assert response.get_json() == {"test1": 0}
 
         # TODO: Add an assertion to check that retrieving the counter still works
+        response = client.get('/counters/test1')
+        response = response.get_json()
+        assert response['test1'] == 0
 
     # ===========================
     # Test: Prevent resetting a non-existent counter
@@ -233,7 +236,7 @@ class TestCounterEndpoints:
         response = client.get('/counters/count')
 
         assert response.status_code == HTTPStatus.OK
-        assert isinstance(response.get_json()["count"], int)  
+        assert isinstance(response.get_json()["count"], int)
 
         # TODO: Add an assertion to check the exact count value
 
@@ -256,6 +259,7 @@ class TestCounterEndpoints:
 
         # TODO: Add an assertion to check that 'a' (value=10) is **excluded**.
 
+
     # ===========================
     # Test: Retrieve counters with values less than a threshold
     # Author: Student 10
@@ -273,6 +277,7 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to ensure 'b' (value=2) is returned as the lowest.
+
 
     # ===========================
     # Test: Validate counter names (prevent special characters)
