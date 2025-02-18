@@ -173,11 +173,7 @@ class TestCounterEndpoints:
 
     # ===========================
     # Test: Prevent negative counter values
-<<<<<<< HEAD
     # Author: Cassandra Tolton
-=======
-    # Author: Student 5
->>>>>>> parent of af46369 (Revert "Merge branch 'main' of https://github.com/eliJerald/Group-6")
     # Modification: Ensure setting a counter to zero is allowed.
     # ===========================
     def test_prevent_negative_counter_values(self, client):
@@ -191,10 +187,7 @@ class TestCounterEndpoints:
         assert response_negative.status_code == HTTPStatus.BAD_REQUEST
 
         # TODO: Add an assertion to verify the response message contains a clear error
-<<<<<<< HEAD
         assert 'Counter value cannot be negative' in response_negative.data.decode()
-=======
->>>>>>> parent of af46369 (Revert "Merge branch 'main' of https://github.com/eliJerald/Group-6")
 
     # ===========================
     # Test: Reset a single counter
@@ -252,11 +245,7 @@ class TestCounterEndpoints:
 
     # ===========================
     # Test: Retrieve counters with values greater than a threshold
-<<<<<<< HEAD
-    # Author: Evan Shumaker
-=======
     # Author: Student 9
->>>>>>> parent of af46369 (Revert "Merge branch 'main' of https://github.com/eliJerald/Group-6")
     # Modification: Ensure the threshold is exclusive.
     # ===========================
     def test_counters_greater_than_threshold(self, client):
@@ -270,12 +259,6 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to check that 'a' (value=10) is **excluded**.
-<<<<<<< HEAD
-        # 'a' should not be in the response because its val is 10, and we should only get stuff greater than it
-        assert "a" not in response.get_json()
-
-=======
->>>>>>> parent of af46369 (Revert "Merge branch 'main' of https://github.com/eliJerald/Group-6")
 
 
     # ===========================
