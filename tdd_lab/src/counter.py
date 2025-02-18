@@ -61,7 +61,7 @@ def get_counter(name):
 def increment_counter(name):
   """Create a counter"""
   if not counter_exists(name):
-      return jsonify({"error": f"Counter {name} does not exist."}), status.HTTP_409_CONFLICT
+    return jsonify({"error": f"Counter {name} does not exist."}), status.HTTP_409_CONFLICT
   COUNTERS[name] += 1
   return jsonify({name: COUNTERS[name]}), status.HTTP_200_OK
 

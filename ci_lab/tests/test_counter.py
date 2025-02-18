@@ -266,7 +266,7 @@ class TestCounterEndpoints:
 
     # ===========================
     # Test: Retrieve counters with values less than a threshold
-    # Author: Student 10
+    # Author: Eli Rosales
     # Modification: Ensure threshold is exclusive.
     # ===========================
     def test_counters_less_than_threshold(self, client):
@@ -281,6 +281,7 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to ensure 'b' (value=2) is returned as the lowest.
+        assert response.get_json() == {'b':0}
 
 
     # ===========================
