@@ -255,6 +255,7 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to check that 'a' (value=10) is **excluded**.
+        # 'a' should not be in the response because its val is 10, and we should only get stuff greater than it
         assert "a" not in response.get_json()
 
 
