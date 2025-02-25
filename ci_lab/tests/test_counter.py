@@ -90,13 +90,13 @@ class TestCounterEndpoints:
         """It should return 405 for unsupported HTTP methods"""
         response = client.patch('/counters/test_counter')
         assert response.status_code == HTTPStatus.METHOD_NOT_ALLOWED
-    
-    
+
+
     """Test cases for Extended Counter API"""
 
     # ===========================
     # Test: Retrieve total count of all counters
-    # Author: Student 1
+    # Author: Student 1: Steven Fojas
     # Modification: Add assertion to check the total value is correct.
     # ===========================
     def test_get_total_counters(self, client):
@@ -108,12 +108,14 @@ class TestCounterEndpoints:
         response = client.get('/counters/total')
 
         assert response.status_code == HTTPStatus.OK
-        
+
         # TODO: Add an assertion to check the correct total value
+        total = response.get_json()
+        assert total['total'] == 1
 
     # ===========================
     # Test: Retrieve top N highest counters
-    # Author: Student 2
+    # Author: Student 2: Jacob Kasbohm
     # Modification: Ensure the API returns exactly N counters.
     # ===========================
     def test_top_n_counters(self, client):
@@ -128,13 +130,15 @@ class TestCounterEndpoints:
         response = client.get('/counters/top/2')
 
         assert response.status_code == HTTPStatus.OK
-        assert len(response.get_json()) <= 2  
+        counters = response.get_json()
+        assert len(counters) <= 2
 
         # TODO: Add an assertion to ensure the returned counters are sorted correctly
+        assert counters["b"] >= counters["a"]
 
     # ===========================
     # Test: Retrieve top N lowest counters
-    # Author: Student 3
+    # Author: Student 3: Sarel Erasmus
     # Modification: Ensure lowest counter has value 0.
     # ===========================
     def test_bottom_n_counters(self, client):
@@ -146,13 +150,14 @@ class TestCounterEndpoints:
         response = client.get('/counters/bottom/1')
 
         assert response.status_code == HTTPStatus.OK
-        assert min(response.get_json().values()) == 0  
+        assert min(response.get_json().values()) == 0
 
-        # TODO: Add an assertion to check that 'b' is indeed in the response
+        # Add an assertion to check that 'a' is indeed in the response
+        assert response.get_json() == {"a":0}
 
     # ===========================
     # Test: Set a counter to a specific value
-    # Author: Student 4
+    # Author: Student 4: Alexander Baker
     # Modification: Ensure setting a counter to the same value does nothing.
     # ===========================
     def test_set_counter_to_value(self, client):
@@ -164,10 +169,11 @@ class TestCounterEndpoints:
         assert response.get_json() == {"test1": 5}
 
         # TODO: Add an assertion to check setting to the same value does not change it again
+        assert response.get_json() == client.put('/counters/test1/set/5').get_json()
 
     # ===========================
     # Test: Prevent negative counter values
-    # Author: Student 5
+    # Author: Cassandra Tolton
     # Modification: Ensure setting a counter to zero is allowed.
     # ===========================
     def test_prevent_negative_counter_values(self, client):
@@ -177,14 +183,15 @@ class TestCounterEndpoints:
         response_zero = client.put('/counters/test1/set/0')
         response_negative = client.put('/counters/test1/set/-3')
 
-        assert response_zero.status_code == HTTPStatus.OK  
-        assert response_negative.status_code == HTTPStatus.BAD_REQUEST  
-        
+        assert response_zero.status_code == HTTPStatus.OK
+        assert response_negative.status_code == HTTPStatus.BAD_REQUEST
+
         # TODO: Add an assertion to verify the response message contains a clear error
+        assert 'Counter value cannot be negative' in response_negative.data.decode()
 
     # ===========================
     # Test: Reset a single counter
-    # Author: Student 6
+    # Author: Ernesto Dones Sierra
     # Modification: Ensure counter still exists after reset.
     # ===========================
     def test_reset_single_counter(self, client):
@@ -198,10 +205,13 @@ class TestCounterEndpoints:
         assert response.get_json() == {"test1": 0}
 
         # TODO: Add an assertion to check that retrieving the counter still works
+        response = client.get('/counters/test1')
+        response = response.get_json()
+        assert response['test1'] == 0
 
     # ===========================
     # Test: Prevent resetting a non-existent counter
-    # Author: Student 7
+    # Author: Daniel Levy
     # Modification: Ensure resetting a non-existent counter does not create it.
     # ===========================
     def test_prevent_resetting_non_existent_counter(self, client):
@@ -210,11 +220,12 @@ class TestCounterEndpoints:
 
         assert response.status_code == HTTPStatus.NOT_FOUND
 
-        # TODO: Add an assertion to verify the error message contains the word 'not found'
+        # Checks if the string "not found" was returned in the error message
+        assert "not found" in response.data.decode()
 
     # ===========================
     # Test: Get total number of counters
-    # Author: Student 8
+    # Author: Jesse Ortega
     # Modification: Add assertion to check count is an integer.
     # ===========================
     def test_get_total_number_of_counters(self, client):
@@ -226,13 +237,15 @@ class TestCounterEndpoints:
         response = client.get('/counters/count')
 
         assert response.status_code == HTTPStatus.OK
-        assert isinstance(response.get_json()["count"], int)  
+        assert isinstance(response.get_json()["count"], int)
 
         # TODO: Add an assertion to check the exact count value
 
+        assert response.get_json()["count"] == 2
+
     # ===========================
     # Test: Retrieve counters with values greater than a threshold
-    # Author: Student 9
+    # Author: Evan Shumaker
     # Modification: Ensure the threshold is exclusive.
     # ===========================
     def test_counters_greater_than_threshold(self, client):
@@ -246,10 +259,14 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to check that 'a' (value=10) is **excluded**.
+        # 'a' should not be in the response because its val is 10, and we should only get stuff greater than it
+        assert "a" not in response.get_json()
+
+
 
     # ===========================
     # Test: Retrieve counters with values less than a threshold
-    # Author: Student 10
+    # Author: Eli Rosales
     # Modification: Ensure threshold is exclusive.
     # ===========================
     def test_counters_less_than_threshold(self, client):
@@ -264,6 +281,8 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to ensure 'b' (value=2) is returned as the lowest.
+        assert response.get_json() == {'b':0}
+
 
     # ===========================
     # Test: Validate counter names (prevent special characters)
