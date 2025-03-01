@@ -7,57 +7,35 @@ using namespace std;
 class Solution
 {
 public:
+    // Encodes a list of strings to a single string.
     string encode(vector<string> &strs)
     {
-
-        if (strs.size() < 1)
-            return " ";
-
-        // combine string into one, place '#' between
         string encoded;
-        for (string s : strs)
+        for (const string &s : strs)
         {
-            encoded += s + "69#";
+            encoded += to_string(s.size()) + "#" + s;
         }
-        // cout << encoded << " ";
         return encoded;
     }
 
+    // Decodes a single string to a list of strings.
     vector<string> decode(string s)
     {
-        vector<string> ans;
+        vector<string> decoded;
         int i = 0;
-        string temp;
-        for (int i = 0; i < s.length() - 1; i++)
+
+        while (i < s.size())
         {
-            if (s[i] == '6')
-            {
-                int j = i + 1;
-                if (s[j] == '9')
-                {
-                    j++;
-                    if (s[j] == '#')
-                    {
-                        i = j;
-                        ans.push_back(temp);
-                        temp.clear();
-                    }
-                    else
-                    {
-                        temp += s[j--];
-                    }
-                }
-                else
-                {
-                    temp += s[i];
-                }
-            }
-            else
-            {
-                temp += s[i];
-                // cout << temp << " ";
-            }
+            int j = i;
+            while (s[j] != '#')
+                j++; // Find the '#' delimiter
+
+            int len = stoi(s.substr(i, j - i));  // Extract the length
+            i = j + 1;                           // Move past '#'
+            decoded.push_back(s.substr(i, len)); // Extract the string
+
+            i += len; // Move to the next encoded string
         }
-        return ans;
+        return decoded;
     }
 };
