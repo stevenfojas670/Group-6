@@ -4,6 +4,9 @@ Test Cases for Account Model
 import json
 from random import randrange
 import pytest
+import unittest
+from unittest.mock import patch
+from ..models.account import EmailValidator, DataValidationError
 from models import db
 from models.account import Account, DataValidationError
 from sqlalchemy.exc import IntegrityError
@@ -311,7 +314,21 @@ def test_role_assignment():
     #exist.id must not exist since we deleted the account so if the result is equal to the prior dummyId this entrance was not erased
     #assert exist.id != dummyId
 
-    
+    def test_valid_email(self):
+        # Test a valid email address
+        email = "valid@example.com"
+        validator = EmailValidator(email)
+        try:
+            validator.validate_email()  # Should pass without exception
+        except DataValidationError as e:
+            self.fail(f"validate_email raised DataValidationError unexpectedly: {str(e)}")
+
+    def test_invalid_email_format(self):
+        # Test an invalid email address (wrong format)
+        email = "invalid-email"
+        validator = EmailValidator(email)
+        with self.assertRaises(DataValidationError):
+            validator.validate_email()
 
     
 

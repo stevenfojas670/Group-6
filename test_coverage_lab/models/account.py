@@ -6,6 +6,7 @@ Defines the Account model.
 
 from datetime import datetime
 import re
+import psycopg2
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db
 
@@ -43,10 +44,31 @@ class Account(db.Model):
         }
 
     def validate_email(self):
-        """Validates email format"""
+        """Validates email format and prevents SQL injection"""
+        
+        # Email regex for basic validation
         email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
         if not re.match(email_regex, self.email):
             raise DataValidationError("Invalid email format")
+        
+        # Preventing SQL injection by using parameterized queries
+        # (Example assumes you are querying a database for checking the email)
+        try:
+            conn = psycopg2.connect("dbname=test user=postgres password=secret")
+            cursor = conn.cursor()
+            
+            # Example SQL query with parameterized query to prevent SQL injection
+            cursor.execute("SELECT * FROM users WHERE email = %s", (self.email,))
+            result = cursor.fetchone()
+            
+            if result:
+                raise DataValidationError("Email already in use")
+            
+            cursor.close()
+            conn.close()
+        
+        except Exception as e:
+            raise DataValidationError(f"Database error: {str(e)}")
 
     def deposit(self, amount):
         """Deposits an amount into the account balance"""
