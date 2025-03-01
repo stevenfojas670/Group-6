@@ -1,0 +1,41 @@
+Function Documentation: std(data)
+Purpose:
+
+Calculates the standard deviation of a given dataset.
+Parameters:
+
+data (list of numbers): The dataset for which the standard deviation is calculated.
+Returns:
+
+float: The standard deviation of the dataset.
+Process:
+
+Calculate Mean:
+
+Finds the mean of the input data using mean(data).
+Sum of Squared Differences:
+
+Iterates through each element.
+Calculates the square of the difference between the element and the mean.
+Accumulates the sum of these squared differences.
+Variance and Deviation:
+
+Divides the summation by the total number of elements (population variance).
+Takes the square root of the variance using np.sqrt() to get the standard deviation.
+Dependencies:
+
+Requires numpy (np) and mean function to be imported.
+Example Usage:
+
+python
+Copy
+Edit
+import numpy as np
+from statistics import mean
+
+data = [10, 20, 30, 40, 50]
+print(std(data))  # Output: Standard deviation of the dataset
+Notes:
+
+This calculates the population standard deviation, not the sample standard deviation.
+Ensure numpy and mean are properly imported before usage.
