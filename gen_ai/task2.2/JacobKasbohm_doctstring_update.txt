@@ -1,0 +1,92 @@
+Overview
+
+The Login.js component is a user authentication form built with React and Material UI. It allows users to log in using either their credentials (username and password) or via Google OAuth.
+
+Features
+1. Standard username and password authentication.
+2. Google OAuth login for a seamless sign-in experience.
+3. User-friendly UI with Material UI components.
+4. Displays messages based on authentication success or failure.
+
+Dependencies
+Ensure that the following dependencies are installed in your project:
+npm install @mui/material @mui/icons-material react-google-login
+
+Code Breakdown
+1. UI Structure
+    The component uses Material UI components to style the login form:
+        -Container: Wraps the form to maintain a consistent width.
+        -Box: A flex container that aligns the elements in the center with some padding and shadow.
+        -Typography: Displays the "Login" heading and additional text.
+        -TextField: Input fields for username and password.
+        -Button: A submission button for login.
+        -GoogleLogin: A button for Google OAuth authentication.
+        -Alert: Displays messages for login status.
+2. Form Submission Handling
+    The form submission is handled by the handleSubmit function, which:
+        -Prevents the default form submission.
+        -Processes login credentials.
+3. Google OAuth Handling
+    The <GoogleLogin /> component initiates OAuth authentication.
+        -On successful authentication, the handleGoogleLogin function processes the response.
+        -If an error occurs, an error message is displayed.
+
+Cod Usage
+1. Import the login component into your main application file:
+    import Login from "./Login"
+2. Include it inside the desired parent component
+
+return (
+        <Container maxWidth="xs">
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    mt: 8,
+                    p: 4,
+                    boxShadow: 3,
+                    borderRadius: 2,
+                    bgcolor: "background.paper"
+                }}
+            >
+                <Typography variant="h5" component="h1" gutterBottom>
+                    Login
+                </Typography>
+                <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+                    <TextField
+                        label="Username"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <TextField
+                        label="Password"
+                        type="password"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+                        Login
+                    </Button>
+                </form>
+                <Typography variant="body1" sx={{ mt: 2 }}>or</Typography>
+                
+                {/* Google OAuth Login */}
+                <GoogleLogin onSuccess={handleGoogleLogin} onError={() => setMessage({ type: "error", text: "OAuth login failed" })} />
+
+                {message && (
+                    <Alert severity={message.type} sx={{ mt: 2, width: "100%" }}>
+                        {message.text}
+                    </Alert>
+                )}
+            </Box>
+        </Container>
+);
